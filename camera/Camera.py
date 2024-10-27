@@ -23,7 +23,7 @@ class Camera:
     def __init__(
             self, lens: Lens,
             origin: np.ndarray, pointing_dir: np.ndarray, up_dir: np.ndarray,
-            sensor_xlim: int = 100, aspect_ratio: float = 4 / 3,
+            sensor_xlim: float = 100.0, aspect_ratio: float = 4 / 3,
             resolution_x: int = 800
     ):
         self.lens = lens
@@ -32,7 +32,7 @@ class Camera:
         self.up_dir = up_dir
         self.sensor_xlim = sensor_xlim
         self.aspect_ratio = aspect_ratio
-        self.sensor_zlim = int(sensor_xlim / self.aspect_ratio)
+        self.sensor_zlim = sensor_xlim / self.aspect_ratio
         self.res_x = resolution_x
         self.res_z = int(resolution_x / self.aspect_ratio)
 

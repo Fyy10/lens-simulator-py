@@ -10,7 +10,8 @@ def main(filename: str):
         lens,
         origin=np.array([.0, -100.0, .0]),
         pointing_dir=np.array([.0, 1.0, .0]),
-        up_dir=np.array([.0, .0, 1.0])
+        up_dir=np.array([.0, .0, 1.0]),
+        sensor_xlim=Config.sensor_xlim
     )
 
     Scene.init()
@@ -59,3 +60,16 @@ if __name__ == '__main__':
         filename = '{}mm_f{}_{}.png'.format(int(Config.focal_length), Config.focal_ratio, int(u))
         print(filename)
         main(filename)
+
+    # exp dof
+    # baseline: 50mm f/2 100mm
+    # 25mm f/1 100mm (same aperture as baseline)
+    Config.focal_length = 25.0
+    Config.focal_ratio = 1.0
+    Config.sensor_dist = 100.0 * Config.focal_length / (100.0 - Config.focal_length)
+    Config.sensor_xlim = Config.sensor_dist  # same angle of view as baseline
+    main('exp_dof/25mm_f1_100.png')
+
+    # 25mm f/2 100mm
+    Config.focal_ratio = 2.0
+    main('exp_dof/25mm_f2_100.png')

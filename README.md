@@ -32,3 +32,11 @@ f/2 aperture focused at 100mm with variable focal length:
 50mm f/1.8 with variable focal distance:
 
 ![50mm_f1.8](img/combined/50mm_f1.8.png)
+
+equivalent focal length (sensor size changes):
+
+$$
+f=\frac{1}{\frac{\ell'}{\ell}\cdot\frac{1}{f'} + \frac{1}{u}\left(1-\frac{\ell'}{\ell}\right)}
+$$
+
+![exp_dof](img/exp_dof/exp_dof.png)
